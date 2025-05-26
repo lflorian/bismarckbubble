@@ -4,14 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bismarck-Bingo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+  
   <link href="./src/output.css" rel="stylesheet">
 </head>
-<body class="font-sans">
+<body style="font-family: 'Montserrat', system-ui, sans-serif;">
   
   <!-- Header Section -->
-  <section class="bg-blue-900 text-white py-16 px-6">
+  <section class="bg-brand-blue text-white py-16 px-6">
     <div class="max-w-4xl mx-auto text-center">
-      <h1 class="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+      <h1 class="heading-xl mb-8">
         Bismarck-<br>Bingo
       </h1>
       <p class="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
@@ -27,23 +32,23 @@
         Jetzt neu hinzugefügt: "Herr Hanisch", "Fuck the Rich" und mehr!
       </p>
       
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
+      <h2 class="heading-lg text-gray-900 mb-2">
         Bismarck-Bingo:
       </h2>
-      <h3 class="text-4xl md:text-5xl font-bold italic text-gray-900 mb-8">
+      <h3 class="heading-lg italic text-gray-900 mb-8">
         Manns Edition
       </h3>
       
-      <button class="bg-blue-900 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded transition-colors">
+      <button class="btn-primary">
         Jetzt spielen
       </button>
     </div>
   </section>
 
   <!-- Help Us Grow Section -->
-  <section class="bg-blue-900 text-white py-16 px-6">
+  <section class="bg-brand-blue text-white py-16 px-6">
     <div class="max-w-4xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-bold mb-8">
+      <h2 class="heading-lg mb-8">
         Hilf uns, zu wachsen
       </h2>
       
@@ -51,12 +56,9 @@
         <input 
           type="text" 
           placeholder="Wort vorschlagen"
-          class="flex-1 px-4 py-3 rounded text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
+          class="flex-1 px-4 py-3 rounded text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-brand-pink"
         >
-        <button 
-          type="submit"
-          class="bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 px-8 rounded transition-colors"
-        >
+        <button type="submit" class="btn-secondary">
           abschicken
         </button>
       </form>
@@ -64,7 +66,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-pink-600 text-white py-8 px-6">
+  <footer class="bg-brand-pink text-white py-8 px-6">
     <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
       <div class="mb-4 md:mb-0">
         <h3 class="text-2xl md:text-3xl font-bold mb-2">
