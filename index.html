@@ -14,7 +14,7 @@
   <style>
     @media (max-width: 600px) {
       .main-heading {
-        font-size: 2.5rem !important;
+        font-size: 6rem !important;
         line-height: 1.1 !important;
         margin-top: 2rem !important;
       }
@@ -25,13 +25,82 @@
         font-size: 1rem !important;
       }
     }
+    @media (min-width: 601px) {
+      .main-heading {
+        font-size: 12rem !important;
+        line-height: 0.85 !important;
+        margin-top: 20vh !important;
+      }
+    }
+    .main-heading {
+      padding-bottom: 36px;
+      padding-top: 12px;
+      overflow: hidden;
+    }
+    @media (max-width: 900px) {
+      .bingo-cards {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    }
+    .bingo-cards {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      justify-content: center;
+      align-items: stretch;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .bingo-card {
+      background: #f8f8fa;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px 0 rgba(34,48,109,0.08);
+      padding: 2rem 2rem 1.5rem 2rem;
+      min-width: 240px;
+      max-width: 320px;
+      flex: 1 1 260px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      border: 1px solid #e0e0e0;
+    }
+    .bingo-card-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #22306d;
+      margin-bottom: 1.2rem;
+    }
+    .bingo-card-btn {
+      margin-top: 2rem;
+      background: #c31381;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.7rem 1.6rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      box-shadow: 0 2px 8px 0 rgba(34,48,109,0.06);
+      text-align: center;
+    }
+    .bingo-card-btn:hover {
+      background: #a0106a;
+    }
   </style>
 </head>
 <body style="background-color: #22306d; font-family: 'Montserrat', sans-serif;">
 
 <div class = "main-container" style="max-width: 1140px; margin: 0 auto; padding: 2rem 0rem 2rem 0rem">
 
-    <div class = "main-heading" style="display: flex; flex-direction: column; align-items: stretch; color: white; font-size: 12rem; line-height: 0.85; font-weight: 700; margin-top: 20vh;">
+    <div class = "main-heading" style="display: flex; flex-direction: column; align-items: stretch; color: white; line-height: 0.85; font-weight: 700; margin-top: 20vh;">
       <span style="text-align: left;">Bismarck-</span>
       <span style="text-align: right;">Bingo</span>
     </div>
@@ -46,25 +115,26 @@
 </div>
 
 <div style="background-color: white"> 
-    <div style="max-width: 1140px; margin: 0 auto; padding: 2rem 0rem 2rem 0rem">
-        <div>
-            <span>Frommeyer-Bingo</span>
-            <a href="/boards/frommeyer.html" style="color: #c31381; text-decoration: underline; font-weight: 500; margin-left: 0.5rem;">mehr erfahren</a>
-        </div>
-
-        <div>
-            <span>Manns-Bingo</span>
-            <a href="/boards/manns.html" style="color: #c31381; text-decoration: underline; font-weight: 500; margin-left: 0.5rem;">mehr erfahren</a>
-        </div>
-
-        <div>
-            <span>Hanisch-Bingo</span>
-            <a href="/boards/hanisch.html" style="color: #c31381; text-decoration: underline; font-weight: 500; margin-left: 0.5rem;">mehr erfahren</a>
-        </div>
+    <div class="bingo-cards" style="max-width: 1140px; margin: 0 auto; padding: 3rem 0rem 3rem 0rem">
+      <div class="bingo-card">
+        <div class="bingo-card-title">Frommeyer-Bingo</div>
+        <div style="color: #22306d; opacity: 0.8; font-size: 1.1rem;">Your fixe? Jour fixe? Ein Bingo für echte Frommeyer-Kenner.</div>
+        <a class="bingo-card-btn" href="/boards/frommeyer.html">mehr erfahren</a>
+      </div>
+      <div class="bingo-card">
+        <div class="bingo-card-title">Manns-Bingo</div>
+        <div style="color: #22306d; opacity: 0.8; font-size: 1.1rem;">Das Original mit den besten Sprüchen aus dem Unterricht.</div>
+        <a class="bingo-card-btn" href="/boards/manns.html">mehr erfahren</a>
+      </div>
+      <div class="bingo-card">
+        <div class="bingo-card-title">Hanisch-Bingo</div>
+        <div style="color: #22306d; opacity: 0.8; font-size: 1.1rem;">Der Abklatsch vom Original.</div>
+        <a class="bingo-card-btn" href="/boards/hanisch.html">mehr erfahren</a>
+      </div>
     </div>
 </div>
 
-<footer style="background: rgb(203, 19, 129); color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 1.5rem 0; font-size: 1.1rem; font-weight: 500; margin-top: 6rem; height: 256px">
+<footer style="background: rgb(203, 19, 129); color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 1.5rem 0rem; font-size: 1.1rem; font-weight: 500; margin-top: 0rem; height: 256px">
   <div style="font-size: 2rem; font-weight: 700;">Erstellt mit ❤️ von der Bismarckbubble.</div>
   <a href="/impressum" style="color: white; text-decoration: underline; font-size: 1rem; margin-top: 1.5rem;">Impressum</a>
 </footer>
