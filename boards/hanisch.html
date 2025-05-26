@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manns-Bingo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+  
+  <link href="../src/output.css" rel="stylesheet">
+  <style>
+    .highlighted { background: #c31381; color: #fff; }
+    table { width: 100%; border-collapse: collapse; margin: 2rem 0; border-radius: 12px; overflow: hidden; }
+    td { background: #fff; border: 1px solid #ccc; padding: 1.2rem; text-align: center; font-size: 1.2rem; cursor: pointer; transition: background 0.2s; font-family: 'Montserrat', sans-serif; width: 25%; height: 130px; }
+    button { background: white; color: black; border: none; padding: 0.8rem 2rem; font-size: 1.1rem; border-radius: 6px; cursor: pointer; margin-bottom: 1rem; }
+    button:hover { background: #c31381; color: white }
+  </style>
+</head>
+
+<body style="background-color: #22306d; font-family: 'Montserrat', sans-serif;">
+
+<div style="max-width: 1140px; margin: 0 auto; padding: 2rem 0rem 2rem 0rem">
+    <a href="/index.html" style="color: white; text-decoration: none; font-size: 1.2rem; margin-bottom: 1rem; display: inline-block;">Zurück</a>
+    <h1 style="color: white; text-align: left; font-size: 3rem; margin-bottom: 1.5rem; font-weight: 600;" >Hanisch-Bingo</h1>
+    <button id="generateButton">Neues Bingo-Feld</button>
+    <table id="bingoTable"></table>
+  </div>
+
+  <script src="fieldGenerator.js"></script>
+  <script src="hanisch.js"></script>
+</body>
+
+<footer style="background: rgb(203, 19, 129); color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 1.5rem 0; font-size: 1.1rem; font-weight: 500; margin-top: 6rem; height: 256px">
+  <div style="font-size: 2rem; font-weight: 700;">Erstellt mit ❤️ von der Bismarckbubble.</div>
+  <a href="/impressum" style="color: white; text-decoration: underline; font-size: 1rem; margin-top: 1.5rem;">Impressum</a>
+</footer>
+
+</html>
