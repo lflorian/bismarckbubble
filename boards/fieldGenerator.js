@@ -78,9 +78,22 @@ const wordPool3 = [
   "weggerutscht",
   "gleichwohl",
   "systemisch",
-  "freute (ich freute mich sehr)",
-  "Wucht / wuchtig",
-  "Architektur"
+  "ich freute mich sehr",
+  "wuchtig",
+  "Architektur",
+  "aufgleisen",
+  "präjudizieren",
+  "nobilitieren",
+  "aufschlagen",
+  "wuppen",
+  "vertanzen",
+  "heilen",
+  "Expertise",
+  "Low Hanging Fruits",
+  "Spirit",
+  "Beziehungslernen",
+  "Intus hoch drei",
+  "Your fixe"
 ];
 
 /**
