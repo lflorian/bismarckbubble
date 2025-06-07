@@ -102,6 +102,7 @@ const wordPool3 = [
  * @param {number} size - The number of rows/columns (default 5 for 5x5 board).
  * @param {string} tableId - The id of the table element to fill.
  */
+
 function generateBingoBoard(wordPool, size = 4, tableId = 'bingoTable') {
   const table = document.getElementById(tableId);
   if (!table) return;
@@ -113,15 +114,83 @@ function generateBingoBoard(wordPool, size = 4, tableId = 'bingoTable') {
     html += '<tr>';
     for (let col = 0; col < size; col++) {
       const idx = row * size + col;
-      html += `<td>${boardWords[idx] || ''}</td>`;
+      html += `<td data-row="${row}" data-col="${col}">${boardWords[idx] || ''}</td>`;
     }
     html += '</tr>';
   }
   table.innerHTML = html;
-  // Add click-to-highlight
+
+  // Add click-to-highlight and win detection
   Array.from(table.getElementsByTagName('td')).forEach(td => {
-    td.onclick = () => td.classList.toggle('highlighted');
+    td.onclick = function() {
+      td.classList.toggle('highlighted');
+      checkBingoWin(size, table);
+    };
   });
+
+  // Hide win message on new board
+  const winMsg = document.getElementById('winMessage');
+  if (winMsg) winMsg.style.display = 'none';
+}
+
+function checkBingoWin(size, table) {
+  // Build a 2D array of highlighted state
+  const cells = Array.from(table.getElementsByTagName('td'));
+  const board = Array.from({length: size}, () => Array(size).fill(false));
+  cells.forEach(td => {
+    const row = parseInt(td.getAttribute('data-row'));
+    const col = parseInt(td.getAttribute('data-col'));
+    if (td.classList.contains('highlighted')) {
+      board[row][col] = true;
+    }
+  });
+
+  // Check rows and columns
+  for (let i = 0; i < size; i++) {
+    if (board[i].every(Boolean)) showWinMessage();
+    if (board.map(row => row[i]).every(Boolean)) showWinMessage();
+  }
+  // Check diagonals
+  if (board.map((row, i) => row[i]).every(Boolean)) showWinMessage();
+  if (board.map((row, i) => row[size - 1 - i]).every(Boolean)) showWinMessage();
+}
+
+
+
+let winToastTimeout = null;
+function showWinMessage() {
+  const winMsg = document.getElementById('winMessage');
+  if (!winMsg) return;
+  // Show toast with fade-in
+  winMsg.style.display = 'block';
+  setTimeout(() => {
+    winMsg.style.opacity = '1';
+  }, 10);
+
+  // Clear any previous timeout
+  if (winToastTimeout) clearTimeout(winToastTimeout);
+  winToastTimeout = setTimeout(() => {
+    hideWinMessage();
+  }, 2500);
+
+  // Add close button handler (idempotent)
+  const closeBtn = document.getElementById('closeWinMessage');
+  if (closeBtn && !closeBtn._handlerSet) {
+    closeBtn.onclick = function(e) {
+      e.stopPropagation();
+      hideWinMessage();
+    };
+    closeBtn._handlerSet = true;
+  }
+}
+
+function hideWinMessage() {
+  const winMsg = document.getElementById('winMessage');
+  if (!winMsg) return;
+  winMsg.style.opacity = '0';
+  setTimeout(() => {
+    winMsg.style.display = 'none';
+  }, 500); // fade out duration
 }
 
 // Export for use in other scripts
