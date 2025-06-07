@@ -2,159 +2,311 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bismarck-Bingo</title>
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <meta name="google-site-verification" content="rO2VT_S8aGOOiq7S-Xz73Zxrop_N2g6nhgNYZMWrAzk" />
-
+  <meta name="description" content="Das offizielle Bismarck-Bingo! Entdecke unsere einzigartigen Bingo-Boards und schlage neue Begriffe vor.">
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
-  
-  <link href="./src/output.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Bismarck-Bingo">
+  <meta property="og:description" content="Spiele das Bismarck-Bingo mit über 50 Buzzwords und wachsenden Begriffen!">
+  <meta property="og:image" content="/social-preview.png">
+  <meta property="og:url" content="https://bismarckbubble.de">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#22306d">
+
   <style>
-    /* Animation for Bismarck-Bingo headline */
-    .main-heading-animate {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.9s cubic-bezier(0.4,0,0.2,1), transform 0.9s cubic-bezier(0.4,0,0.2,1);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .main-heading-animate.visible {
-      opacity: 1;
-      transform: translateY(0);
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #1b254f 0%, #22306d 100%);
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-  </style>
-  <style>
-    @media (max-width: 600px) {
-      .main-heading {
-        font-size: 6rem !important;
-        line-height: 1.1 !important;
-        margin-top: 2rem !important;
-      }
-      .main-container {
-        padding: 1rem 0.5rem 1rem 0.5rem !important;
-      }
-      .main-desc {
-        font-size: 1rem !important;
-      }
+
+    a {
+      text-decoration: none;
     }
-    @media (min-width: 601px) {
-      .main-heading {
-        font-size: 12rem !important;
-        line-height: 0.85 !important;
-        margin-top: 20vh !important;
-      }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
     }
-    .main-heading {
-      padding-bottom: 36px;
-      padding-top: 12px;
-      overflow: hidden;
+
+    .hero-header {
+      padding: 12vh 1.5rem 6vh;
+      text-align: center;
+      background: radial-gradient(circle at top, #2d3b7b, #1b254f);
+      color: #ffffff;
     }
-    @media (max-width: 900px) {
-      .bingo-cards {
-        flex-direction: column;
-        gap: 1.5rem;
-      }
+
+    .hero-inner {
+      max-width: 1000px;
+      margin: 0 auto;
     }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title .highlight {
+      color: #cb1381;
+      display: inline-block;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #dbe0f5;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .bingo-section {
+      background: #f4f6fc;
+      padding: 5rem 1rem;
+    }
+
     .bingo-cards {
-      display: flex;
-      flex-direction: row;
-      gap: 2rem;
-      justify-content: center;
-      align-items: stretch;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
     }
+
     .bingo-card {
-      background: #f8f8fa;
-      border-radius: 18px;
-      box-shadow: 0 4px 24px 0 rgba(34,48,109,0.08);
-      padding: 2rem 2rem 1.5rem 2rem;
-      min-width: 240px;
-      max-width: 320px;
-      flex: 1 1 260px;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 10px 25px rgba(34, 48, 109, 0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      justify-content: space-between;
-      border: 1px solid #e0e0e0;
     }
+
+    .bingo-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(34, 48, 109, 0.2);
+    }
+
     .bingo-card-title {
-      font-size: 2rem;
-      font-weight: 700;
+      font-size: 1.9rem;
+      font-weight: 800;
       color: #22306d;
       margin-bottom: 1.2rem;
     }
+
     .bingo-card-btn {
-      margin-top: 2rem;
-      background: #c31381;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 0.7rem 1.6rem;
+      margin-top: auto;
+      display: inline-block;
+      padding: 0.9rem 1.8rem;
       font-size: 1.1rem;
       font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
-      text-decoration: none;
+      background: linear-gradient(135deg, #cb1381, #9b0f67);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(203, 19, 129, 0.3);
+      transition: background 0.3s ease, transform 0.2s ease;
+      text-align: center;
+      width: 100%;
+    }
+
+    .bingo-card-btn:hover {
+      transform: scale(1.03);
+      background: linear-gradient(135deg, #9b0f67, #7c0c57);
+    }
+
+    .form-section {
+      background: #ffffff;
+      color: #22306d;
+      padding: 5rem 1rem;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #f8f9ff;
+      padding: 2.5rem;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(34, 48, 109, 0.1);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccd2e0;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+    }
+
+    .submit-btn {
       display: block;
       width: 100%;
-      box-sizing: border-box;
-      box-shadow: 0 2px 8px 0 rgba(34,48,109,0.06);
-      text-align: center;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #cb1381, #9b0f67);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
-    .bingo-card-btn:hover {
-      background: #a0106a;
+
+    .submit-btn:hover {
+      background: linear-gradient(135deg, #9b0f67, #7c0c57);
+    }
+
+    footer {
+      background: #cb1381;
+      padding: 4rem 1rem;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    footer h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    footer a {
+      color: #fff;
+      font-size: 1rem;
+      text-decoration: underline;
+      transition: opacity 0.2s;
+    }
+
+    footer a:hover {
+      opacity: 0.8;
+    }
+
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+      }
+
+      .bingo-card-title {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
-<body style="background-color: #22306d; font-family: 'Montserrat', sans-serif;">
+<body>
 
-<div class = "main-container" style="max-width: 1140px; margin: 0 auto; padding: 2rem 0rem 2rem 0rem">
-    <div class = "main-heading main-heading-animate" id="headline-animate" style="display: flex; flex-direction: column; align-items: stretch; color: white; line-height: 0.85; font-weight: 700; margin-top: 20vh;">
-      <span style="text-align: left;">Bismarck-</span>
-      <span style="text-align: right;">Bingo</span>
+  <header class="hero-header">
+    <div class="hero-inner">
+      <h1 class="hero-title">
+        <span class="highlight">Bismarck-Bubble</span><br>
+        Das offizielle Bingo
+      </h1>
+      <p class="hero-subtitle">
+        Mit über <strong>50 Buzzwords</strong> – und es werden ständig mehr!<br>
+        Entdecke, lache, und spiele mit der Community.
+      </p>
     </div>
-    <div style="height: 3rem;"></div>
-    <div class="main-desc" style="color: white; font-size: 1.4rem">
-      <span><b>Bingo!</b> Mit über 50 Buzzwords, denen stetig neue hinzugefügt werden, wird es beim Bismarck-Bingo nicht langweilig.</span>
-    </div>
-    <div style="height: 3rem;"></div>
-</div>
+  </header>
 
-<div style="background-color: white"> 
-    <div class="bingo-cards" style="max-width: 1140px; margin: 0 auto; padding: 3rem 0rem 3rem 0rem">
-      <div class="bingo-card">
-        <div class="bingo-card-title">Frommeyer-Bingo</div>
-        <div style="color: #22306d; opacity: 0.8; font-size: 1.1rem;"></div>
-        <a class="bingo-card-btn" href="/boards/frommeyer.html">mehr erfahren</a>
-      </div>
-      <div class="bingo-card">
-        <div class="bingo-card-title">Manns-Bingo</div>
-        <div style="color: #22306d; opacity: 0.8; font-size: 1.1rem;"></div>
-        <a class="bingo-card-btn" href="/boards/manns.html">mehr erfahren</a>
-      </div>
-      <div class="bingo-card">
-        <div class="bingo-card-title">Hanisch-Bingo</div>
-        <div style="color: #22306d; opacity: 0.8; font-size: 1.1rem;"></div>
-        <a class="bingo-card-btn" href="/boards/hanisch.html">mehr erfahren</a>
+  <section class="bingo-section">
+    <div class="container">
+      <div class="bingo-cards">
+        <div class="bingo-card">
+          <div class="bingo-card-title">Frommeyer-Bingo</div>
+          <a class="bingo-card-btn" href="/boards/frommeyer.html">mehr erfahren</a>
+        </div>
+        <div class="bingo-card">
+          <div class="bingo-card-title">Manns-Bingo</div>
+          <a class="bingo-card-btn" href="/boards/manns.html">mehr erfahren</a>
+        </div>
+        <div class="bingo-card">
+          <div class="bingo-card-title">Hanisch-Bingo</div>
+          <a class="bingo-card-btn" href="/boards/hanisch.html">mehr erfahren</a>
+        </div>
       </div>
     </div>
-</div>
+  </section>
 
-<footer style="background: rgb(203, 19, 129); color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 1.5rem 0rem; font-size: 1.1rem; font-weight: 500; margin-top: 0rem; height: 256px">
-  <div style="font-size: 2rem; font-weight: 700;">Erstellt mit ❤️ von der Bismarckbubble.</div>
-  <a href="/impressum" style="color: white; text-decoration: underline; font-size: 1rem; margin-top: 1.5rem;">Impressum</a>
+  <section class="form-section">
+    <div class="container">
+      <div class="form-container">
+        <h2>Wort vorschlagen</h2>
+        <form id="suggestion-form">
+          <div class="form-group">
+            <label for="name">Dein Name</label>
+            <input type="text" id="name" name="Name" required>
+          </div>
+          <div class="form-group">
+            <label for="suggestion">Vorgeschlagenes Wort / Begriff</label>
+            <textarea id="suggestion" name="Vorschlag" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Absenden</button>
+          <p id="thank-you-message" style="display:none; margin-top:1rem; color:green; font-weight:600;">Danke für deinen Vorschlag! ✨</p>
+        </form>
+      </div>
+    </div>
+  </section>
 
-<script>
-  window.addEventListener('DOMContentLoaded', function() {
-    setTimeout(function() {
-      document.getElementById('headline-animate').classList.add('visible');
-    }, 100);
-  });
-</script>
-</footer>
+  <footer>
+    <h2>Erstellt mit ❤️ von der Bismarckbubble.</h2>
+    <a href="/impressum">Impressum</a>
+  </footer>
+
+  <script>
+    document.getElementById('suggestion-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = encodeURIComponent(document.getElementById('name').value);
+      const suggestion = encodeURIComponent(document.getElementById('suggestion').value);
+      const mailto = `mailto:rundholz.hebezeuge-0r@icloud.com?subject=Wortvorschlag von ${name}&body=Vorgeschlagenes Wort: ${suggestion}`;
+      window.location.href = mailto;
+      document.getElementById('thank-you-message').style.display = 'block';
+      this.reset();
+    });
+  </script>
 
 </body>
 </html>
