@@ -12,6 +12,18 @@
   
   <link href="./src/output.css" rel="stylesheet">
   <style>
+    /* Animation for Bismarck-Bingo headline */
+    .main-heading-animate {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s cubic-bezier(0.4,0,0.2,1), transform 0.9s cubic-bezier(0.4,0,0.2,1);
+    }
+    .main-heading-animate.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  <style>
     @media (max-width: 600px) {
       .main-heading {
         font-size: 6rem !important;
@@ -99,18 +111,14 @@
 <body style="background-color: #22306d; font-family: 'Montserrat', sans-serif;">
 
 <div class = "main-container" style="max-width: 1140px; margin: 0 auto; padding: 2rem 0rem 2rem 0rem">
-
-    <div class = "main-heading" style="display: flex; flex-direction: column; align-items: stretch; color: white; line-height: 0.85; font-weight: 700; margin-top: 20vh;">
+    <div class = "main-heading main-heading-animate" id="headline-animate" style="display: flex; flex-direction: column; align-items: stretch; color: white; line-height: 0.85; font-weight: 700; margin-top: 20vh;">
       <span style="text-align: left;">Bismarck-</span>
       <span style="text-align: right;">Bingo</span>
     </div>
-
     <div style="height: 3rem;"></div>
-
     <div class="main-desc" style="color: white; font-size: 1.4rem">
-    <span><b>Bingo!</b> Mit über 50 Buzzwords, denen stetig neue hinzugefügt werden, wird es beim Bismarck-Bingo nicht langweilig.</span>
+      <span><b>Bingo!</b> Mit über 50 Buzzwords, denen stetig neue hinzugefügt werden, wird es beim Bismarck-Bingo nicht langweilig.</span>
     </div>
-
     <div style="height: 3rem;"></div>
 </div>
 
@@ -137,6 +145,14 @@
 <footer style="background: rgb(203, 19, 129); color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 1.5rem 0rem; font-size: 1.1rem; font-weight: 500; margin-top: 0rem; height: 256px">
   <div style="font-size: 2rem; font-weight: 700;">Erstellt mit ❤️ von der Bismarckbubble.</div>
   <a href="/impressum" style="color: white; text-decoration: underline; font-size: 1rem; margin-top: 1.5rem;">Impressum</a>
+
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+      document.getElementById('headline-animate').classList.add('visible');
+    }, 100);
+  });
+</script>
 </footer>
 
 </body>
