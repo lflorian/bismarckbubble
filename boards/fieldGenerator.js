@@ -171,7 +171,7 @@ function showWinMessage() {
   if (winToastTimeout) clearTimeout(winToastTimeout);
   winToastTimeout = setTimeout(() => {
     hideWinMessage();
-  }, 2500);
+  }, 5000);
 
   // Add close button handler (idempotent)
   const closeBtn = document.getElementById('closeWinMessage');
