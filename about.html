@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="de">
 <head>
@@ -9,12 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link href="./src/output.css" rel="stylesheet">
   <style>
     body {
       background-color: #22306d;
       font-family: 'Montserrat', sans-serif;
       margin: 0;
+      padding: 0%;
       min-height: 100vh;
     }
     .about-container {
@@ -66,8 +65,12 @@
       color: #cb1381;
     }
     .contact-card a {
-      color: #22306d;
-      text-decoration: underline;
+      color: #ffffff;
+      border: none;
+      background-color: #cb1381;
+      padding: 3% 5%;
+      border-radius: 18px;
+      text-decoration: none;
       font-weight: 500;
       margin-top: 0.5rem;
       word-break: break-all;
@@ -101,30 +104,139 @@
         width: 100%;
       }
     }
+
+    .site-footer {
+  background: #1b254f;
+  color: #f2f4ff;
+  padding: 4rem 1.5rem 2rem;
+  font-size: 0.95rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  gap: 2rem;
+}
+
+.footer-left {
+  flex: 1 1 300px;
+}
+
+.footer-left h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.footer-left p {
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+.footer-right {
+  flex: 1 1 200px;
+}
+
+.footer-right ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-right li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-right a {
+  color: #f2f4ff;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.footer-right a:hover {
+  opacity: 0.75;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #9ba2c5;
+  border-top: 1px solid #2e324f;
+  padding-top: 1rem;
+}
+
+@media (max-width: 700px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-left,
+  .footer-right {
+    width: 100%;
+  }
+
+  .footer-right ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-right li {
+    margin-bottom: 0.5rem;
+  }
+}
+
   </style>
 </head>
 <body>
   <div class="about-container">
     <a href="/index.html" style="color: white; text-decoration: none; font-size: 1.2rem; margin-bottom: 1rem; display: inline-block;">Zurück</a>
-    <h1 style="color: white; text-align: left; font-size: 3rem; margin-bottom: 1.5rem; font-weight: 600;">Über uns</h1>
-    <div class="contact-cards-row">
-      <div class="contact-card">
-        <h2>Florian</h2>
-        <div>Webentwickler</div>
-        <a href="https://lflorian.framer.website" target="_blank">lflorian.framer.website</a>
-      </div>
-      <div class="contact-card">
-        <h2>Faraz</h2>
-        <div>Webentwickler</div>
-        <a href="https://zinvana.com" target="_blank">zinvana.com</a>
-      </div>
+    <h1 class="about-heading">Über uns</h1>
+
+<div class="contact-cards-row">
+  <div class="contact-card">
+    <h2>Florian</h2>
+    <div style="margin-bottom: 0.5rem;">Webentwickler & Designer</div>
+    <div style="margin-bottom: 0.25rem; font-weight: 600;">Portfolio:</div>
+    <a href="https://lflorian.framer.website" target="_blank">lflorian.framer.website</a>
+    <div style="margin-top: 1rem; margin-bottom: 0.25rem; font-weight: 600;">Aktuelles Projekt:</div>
+    <img src="bismarckschule.jpg" alt="logo" id="pic" style="width: 40%; margin-top: 5%;">
+    <a href="https://bismarckschule.de" target="_blank">bismarckschule.de</a>
+  </div>
+  <div class="contact-card">
+    <h2>Faraz</h2>
+    <div style="margin-bottom: 0.5rem;">Webentwickler & Konzepter</div>
+    <div style="margin-bottom: 0.25rem; font-weight: 600;">Portfolio:</div>
+    <a href="https://zinvana.com" target="_blank">zinvana.com</a>
+    <div style="margin-top: 1rem; margin-bottom: 0.25rem; font-weight: 600;">Hauptprojekt:</div>
+        <img src="zinvanalogo.png" alt="logo" id="pic" style="width: 40%; border-radius: 50%; margin-top: 5%;">
+    <a href="https://zinvana.com" target="_blank">zinvana.com</a>
+  </div>
+</div>
+
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <h2>Bismarck-Bubble ❤️</h2>
+      <p>Gemeinsam lachen, spielen und Buzzwords entdecken.<br>Willkommen zu Bismarck-Bubble!!!</p>
+    </div>
+    <div class="footer-right">
+      <ul>
+        <li><a href="/impressum">Impressum</a></li>
+        <li><a href="mailto:rundholz.hebezeuge-0r@icloud.com">Kontakt</a></li>
+        <li><a href="https://instagram.com/" target="_blank">About Us</a></li>
+      </ul>
     </div>
   </div>
-
-  <footer style="background: rgb(203, 19, 129); color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 1.5rem 0; font-size: 1.1rem; font-weight: 500; margin-top: 6rem; height: 256px">
-    <div style="font-size: 2rem; font-weight: 700;">Erstellt mit ❤️ von der Bismarckbubble.</div>
-    <a href="/impressum" style="color: white; text-decoration: underline; font-size: 1rem; margin-top: 1.5rem;">Impressum</a>
-  </footer>
-
+  <div class="footer-bottom">
+    <p>&copy; 2025 Bismarck-Bubble. Alle Rechte vorbehalten.</p>
+  </div>
+</footer>
 </body>
 </html>
