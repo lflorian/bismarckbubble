@@ -36,7 +36,7 @@
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1140px;
       margin: 0 auto;
       padding: 3rem 1.5rem;
     }
@@ -50,41 +50,19 @@
     }
 
     .hero-inner {
-      max-width: 1000px;
+      max-width: 1140px;
       margin: 0 auto;
-    }
-
-    .hero-title {
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
-      font-weight: 900;
-      line-height: 1.15;
-      letter-spacing: -1px;
-      margin-bottom: 1rem;
-    }
-
-    .hero-title .highlight {
-      color: #cb1381;
-      display: inline-block;
-    }
-
-    .hero-subtitle {
-      font-size: 1.5rem;
-      font-weight: 400;
-      color: #dbe0f5;
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.6;
     }
 
     .bingo-section {
       background: #fff;
-      padding: 3rem 0 3rem 0;
+      padding: 3rem 0 0rem 0;
     }
 
     .bingo-cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2.5rem;
+      gap: 2rem;
       margin-top: 3rem;
     }
 
@@ -97,16 +75,12 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-    }
-
-    .bingo-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 16px 40px rgba(34, 48, 109, 0.2);
+      border: 1px solid #e0e0e0;
     }
 
     .bingo-card-title {
       font-size: 1.9rem;
-      font-weight: 800;
+      font-weight: 600;
       color: #22306d;
       margin-bottom: 1.2rem;
     }
@@ -135,22 +109,27 @@
     .form-section {
       background: #ffffff;
       color: #22306d;
-      padding: 5rem 1rem;
+      padding: 3rem 1.5rem; /* same as .container */
     }
 
     .form-container {
-      max-width: 600px;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 10px 25px rgba(34, 48, 109, 0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      border: 1px solid #e0e0e0;
+      max-width: 1140px; /* match .container */
       margin: 0 auto;
-      background: #f8f9ff;
-      padding: 2.5rem;
-      border-radius: 18px;
-      box-shadow: 0 8px 24px rgba(34, 48, 109, 0.1);
     }
 
     .form-container h2 {
       text-align: center;
       font-size: 2rem;
-      font-weight: 800;
+      font-weight: 600;
       margin-bottom: 1.5rem;
     }
 
@@ -175,26 +154,30 @@
       resize: vertical;
     }
 
+  .form-row {
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-row .form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    .form-row {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
     .form-group textarea {
       min-height: 120px;
-    }
-
-    .submit-btn {
-      display: block;
-      width: 100%;
-      padding: 1rem;
-      font-size: 1.1rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #cb1381, #9b0f67);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .submit-btn:hover {
-      background: linear-gradient(135deg, #9b0f67, #7c0c57);
     }
 
 .site-footer {
@@ -208,7 +191,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: 1140px;
   margin: 0 auto 2rem;
   gap: 2rem;
 }
@@ -219,7 +202,7 @@
 
 .footer-left h2 {
   font-size: 1.6rem;
-  font-weight: 800;
+  font-weight: 600;
   margin-bottom: 0.5rem;
   color: #ffffff;
 }
@@ -229,28 +212,10 @@
   line-height: 1.6;
 }
 
-.footer-right {
-  flex: 1 1 200px;
-}
-
-.footer-right ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-right li {
-  margin-bottom: 0.6rem;
-}
-
-.footer-right a {
+.footer-left a {
   color: #f2f4ff;
   text-decoration: none;
   transition: opacity 0.3s;
-}
-
-.footer-right a:hover {
-  opacity: 0.75;
-  text-decoration: underline;
 }
 
 .footer-bottom {
@@ -261,59 +226,136 @@
   padding-top: 1rem;
 }
 
-@media (max-width: 700px) {
+
+@media (max-width: 900px) {
   .footer-container {
     flex-direction: column;
     align-items: flex-start;
+    gap: 1.5rem;
   }
+  .footer-left {
+    width: 100%;
+    flex: unset;
+  }
+}
 
-  .footer-left,
-  .footer-right {
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 2.5rem 0.7rem 1.2rem;
+    font-size: 0.92rem;
+  }
+  .footer-container {
+    margin: 0 auto 1rem;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-left {
+    align-items: center;
+    text-align: center;
     width: 100%;
   }
-
-  .footer-right ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+  .footer-left h2 {
+    font-size: 1.2rem;
+    text-align: center;
   }
 
-  .footer-right li {
-    margin-bottom: 0.5rem;
+  .footer-bottom {
+    font-size: 0.8rem;
+    padding-top: 0.7rem;
+    text-align: center;
   }
 }
 
 
-    @media (max-width: 600px) {
-      .hero-title {
-        font-size: 2.5rem;
-      }
-
-      .hero-subtitle {
-        font-size: 1.1rem;
-        padding: 0 1rem;
-      }
-
-      .bingo-card-title {
-        font-size: 1.5rem;
-      }
+  @media (max-width: 600px) {
+    .hero-title {
+      font-size: 2.5rem;
     }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      padding: 0 1rem;
+    }
+
+    .bingo-card-title {
+      font-size: 1.5rem;
+    }
+  }
+
+    .main-heading-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.main-heading-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
   </style>
 </head>
 <body>
 
-  <header class="hero-header">
-    <div class="hero-inner">
-      <h1 class="hero-title">
-        <span class="highlight">Bismarck-Bubble</span><br>
-        Das offizielle Bingo
-      </h1>
-      <p class="hero-subtitle">
-        Mit über <strong>50 Buzzwords</strong> – und es werden ständig mehr!<br>
-        Entdecke, lache, und spiele mit der Community.
-      </p>
-    </div>
-  </header>
+<header class="hero-header">
+  <div class="hero-inner">
+
+<div style="
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 50% 50%;
+  gap: 1rem;
+  text-align: left;
+">
+  <!-- Row 1: Full-width Bismarck- -->
+    <div style="grid-column: 1 / span 2; align-self: end;">
+    <h1 class="main-heading-animate" style="
+      font-size: clamp(5rem, 12vw, 12rem);
+      font-weight: 700;
+      line-height: 0.75;
+      letter-spacing: -1px;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+    ">
+      Bismarck-
+    </h1>
+  </div>
+
+  <!-- Row 2: Column 1 = Paragraph -->
+  <div>
+    <p class="main-heading-animate" style="
+      font-size: 1.65rem;
+      font-weight: 400;
+      line-height: 1.6;
+      max-width: 40ch;
+      color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+      padding-left: 12px;
+    ">
+      <strong>Bingo!</strong> Mit über 50 Buzzwords, denen stetig neue hinzugefügt werden, wird es beim Bismarck-Bingo nicht langweilig.
+    </p>
+  </div>
+
+  <!-- Row 2: Column 2 = Bingo -->
+    <div class="main-heading-animate" style="align-self: start; overflow: visible;">
+    <h1 style="
+      font-size: clamp(5rem, 12vw, 12rem);
+      font-weight: 700;
+      line-height: 0.85;
+      letter-spacing: -1px;
+      margin-bottom: 0;
+      color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+    ">
+      Bingo
+    </h1>
+  </div>
+</div>
+
+  </div>
+</header>
 
   <section class="bingo-section">
     <div class="container" style="padding:0;">
@@ -335,44 +377,41 @@
   </section>
 
   <section class="form-section">
-    <div class="container">
-      <div class="form-container">
-        <h2>Wort vorschlagen</h2>
+    <div class="form-container">
+      <h2>Wort vorschlagen</h2>
         <form id="suggestion-form">
-          <div class="form-group">
-            <label for="name">Dein Name</label>
-            <input type="text" id="name" name="Name" required>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="Name" required>
+            </div>
+            <div class="form-group">
+              <label for="suggestion">Wort</label>
+              <input type="text" id="suggestion" name="Vorschlag" required>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="suggestion">Vorgeschlagenes Wort / Begriff</label>
-            <textarea id="suggestion" name="Vorschlag" required></textarea>
-          </div>
-          <button type="submit" class="submit-btn">Absenden</button>
-          <p id="thank-you-message" style="display:none; margin-top:1rem; color:green; font-weight:600;">Danke für deinen Vorschlag! ✨</p>
+          
+          <button type="submit" class="bingo-card-btn">absenden</button>
+          <p id="thank-you-message" style="display:none; margin-top:1rem; color:green; font-weight:600;">Dankeschön.</p>
         </form>
-      </div>
     </div>
   </section>
 
 <footer class="site-footer">
   <div class="footer-container">
     <div class="footer-left">
-      <h2>Bismarck-Bubble ❤️</h2>
-      <p>Gemeinsam lachen, spielen und Buzzwords entdecken.<br>Willkommen zu Bismarck-Bubble!!!</p>
-    </div>
-    <div class="footer-right">
-      <ul>
-        <li><a href="impressum.html">Impressum</a></li>
-        <li><a href="mailto:rundholz.hebezeuge-0r@icloud.com">Kontakt</a></li>
-        <li><a href="about.html" target="_blank">About Us</a></li>
-      </ul>
+      <h2>Bismarck-Bingo</h2>
+      <p>
+        <a href="impressum.html">Impressum</a> | 
+        <a href="mailto:rundholz.hebezeuge-0r@icloud.com">Kontakt</a> | 
+        <a href="about.html">Über uns</a>
+      </p>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2025 Bismarck-Bubble. Alle Rechte vorbehalten.</p>
+    <p>Erstellt mit ❤️ von der Bismarckbubble</p>
   </div>
 </footer>
-
 
   <script>
     document.getElementById('suggestion-form').addEventListener('submit', function(e) {
@@ -384,7 +423,14 @@
       document.getElementById('thank-you-message').style.display = 'block';
       this.reset();
     });
-  </script>
 
+    window.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        document.querySelectorAll('.main-heading-animate').forEach(function(el) {
+          el.classList.add('visible');
+        });
+      }, 100);
+    });
+  </script>
 </body>
 </html>

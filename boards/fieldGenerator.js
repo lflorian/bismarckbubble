@@ -58,7 +58,7 @@ const wordPool1 = [
 
 // Word Pool Hanisch
 const wordPool2 = [
-  ""
+  "Work in Progress"
 ];
 
 // Word Pool Frommeyer

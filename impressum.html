@@ -47,6 +47,94 @@
         font-size: 1rem;
       }
     }
+
+
+    .site-footer {
+  background: linear-gradient(135deg, #9b0f67, #7c0c57);;
+  color: #f2f4ff;
+  padding: 4rem 1.5rem 2rem;
+  font-size: 0.95rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1140px;
+  margin: 0 auto 2rem;
+  gap: 2rem;
+}
+
+.footer-left {
+  flex: 1 1 300px;
+}
+
+.footer-left h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.footer-left p {
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+.footer-left a {
+  color: #f2f4ff;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #ffffff;
+  border-top: 1px solid #af2d80;
+  padding-top: 1rem;
+}
+
+
+@media (max-width: 900px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .footer-left {
+    width: 100%;
+    flex: unset;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 2.5rem 0.7rem 1.2rem;
+    font-size: 0.92rem;
+  }
+  .footer-container {
+    margin: 0 auto 1rem;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-left {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  .footer-left h2 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .footer-bottom {
+    font-size: 0.8rem;
+    padding-top: 0.7rem;
+    text-align: center;
+  }
+}
   </style>
 </head>
 <body>
@@ -76,10 +164,21 @@ Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten d
     </div>
   </div>
 
-  <footer style="background: rgb(203, 19, 129); color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 1.5rem 0; font-size: 1.1rem; font-weight: 500; margin-top: 6rem; height: 256px">
-    <div style="font-size: 2rem; font-weight: 700;">Erstellt mit ❤️ von der Bismarckbubble.</div>
-    <a href="/impressum" style="color: white; text-decoration: underline; font-size: 1rem; margin-top: 1.5rem;">Impressum</a>
-  </footer>
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <h2>Bismarck-Bingo</h2>
+      <p>
+        <a href="impressum.html">Impressum</a> | 
+        <a href="mailto:rundholz.hebezeuge-0r@icloud.com">Kontakt</a> | 
+        <a href="about.html">Über uns</a>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Erstellt mit ❤️ von der Bismarckbubble</p>
+  </div>
+</footer>
 
 </body>
 </html>
